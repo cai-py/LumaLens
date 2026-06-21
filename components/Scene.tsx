@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useMemo } from "react";
 import type { HouseGeometry, LightingScenario } from "../lib/house";
+import TemplateHouse from "./TemplateHouse";
 
 const LIGHTING_PRESETS: Record<LightingScenario, { color: string; intensity: number; positions: [number, number, number][] }> = {
   "Curb Appeal": {
@@ -143,7 +144,8 @@ export default function Scene({
         ))}
         <pointLight position={[0, 5, 0]} intensity={0.3} color="#ffffff" />
 
-        <HouseBody house={house} />
+        {/* Use a template house model for the demo to look more standard */}
+        <TemplateHouse />
 
         <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
           <planeGeometry args={[40, 40]} />
